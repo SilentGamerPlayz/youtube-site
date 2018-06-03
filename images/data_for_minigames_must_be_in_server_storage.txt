@@ -1,0 +1,17 @@
+game.Players.PlayerAdded:connect(function(player)
+	game.Workspace:WaitForChild("NumPlayers").Value = game.Workspace:WaitForChild("NumPlayers").Value + 1
+	local settings = Instance.new("Folder",player)
+	settings.Name = "Settings"
+	local afk = Instance.new("BoolValue",settings)
+	afk.Name = "AFK"
+	local leaderboard = Instance.new("Folder",player)
+	leaderboard.Name = "leaderstats"
+	local currency1 = Instance.new("IntValue",leaderboard)
+	currency1.Name = "Credits"
+	local currency2 = Instance.new("IntValue",leaderboard)
+	currency2.Name = "Wins"
+end)
+
+game.Players.PlayerRemoving:connect(function(player)
+	game.Workspace:WaitForChild("NumPlayers").Value = game.Workspace:WaitForChild("NumPlayers").Value - 1
+end)
